@@ -4,7 +4,7 @@ from math import *
 # Determinarea numarului de elemente ( 3  4 )
 def nr_elemente(lis):
 
-	return lis.count()
+	return len( lis )
 
 
 # Afisarea multimii ( 2 )
@@ -20,9 +20,9 @@ def suport(lis):
 
 	sup.sort()
 
-	n = lis.count()
+	n = 0
 
-	while n:
+	while n < len( sup ) :
 
 		m = sup.count( sup[n] ) - 1
 
@@ -30,9 +30,9 @@ def suport(lis):
 
 			sup.remove( sup[n] )
 
-			m = m - 1
+			m = m -1
 
-		n = n - 1
+		n = n + 1
 
 	return sup
 
@@ -55,13 +55,13 @@ def inserare( lis ):
 
 	n = int( input("Numar de termeni >>> ") )
 
-	while n:
+	for i in range( 0 , n):
 		
 		lis.append( int( input( ">>> " ) ) )
 
 
 # Verifica daca lista este inclusa in alta lista ( 8 )
-def if_inlude(lis):
+def if_include(lis):
 
 	lis2 = []
 	gen(lis2)
@@ -72,22 +72,22 @@ def if_inlude(lis):
 	sup_lis = suport(lis)
 	sup_lis2 = suport(lis2)
 
-	for i in range( 0 , sup_lis.count() - 1) :
+	for i in range( 0 , len(sup_lis) - 1) :
 
 		if sup_lis[i] in sup_lis2 :
 			return "Este inclusa"
 
 	return "Nu este inclusa"
 
-# Operatiile de reuniune diferenta si incluziune
+# Operatiile de reuniune diferenta si incluziune ( 9 )
 def operation(lis):
 
 	 lis2 = []
 	 gen(lis2)
 
-	 print( "Reuniune : " + str( lis | lis2) )
-	 print( "Intersectie : " + str( lis & lis2 ) )
-	 print( "Diferenta : " + str( lis - lis2 ) )
+	 print( "Reuniune : " + str( set( lis ) | set( lis2 ) ) )
+	 print( "Intersectie : " + str(  set( lis ) & set( lis2 ) ) )
+	 print( "Diferenta : " + str( set( lis ) - set( lis2 ) ) )
 
 
 def if_inlude_who(lis):
@@ -101,9 +101,9 @@ def if_inlude_who(lis):
 	sup_lis = suport(lis)
 	sup_lis2 = suport(lis2)
 
-	if sup_lis.count() < sup_lis2.count() :
+	if len( sup_lis ) < len( sup_lis2 ) :
 
-		for i in range( 0 , sup_lis.count() - 1) :
+		for i in range( 0 , len( sup_lis ) - 1 ) :
 
 			if sup_lis[i] in sup_lis2 :
 				return "Arima multime nu este inclusa in cea de a doua"
