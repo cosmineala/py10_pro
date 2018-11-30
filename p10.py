@@ -50,6 +50,8 @@ def gen( lis ):
 
 		n = n - 1
 
+	lis.sort()
+
 # Adaugare de termeni ( 11 )
 def inserare( lis ):
 
