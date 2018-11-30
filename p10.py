@@ -103,22 +103,23 @@ def if_inlude_who(lis):
 
 	if len( sup_lis ) < len( sup_lis2 ) :
 
-		for i in range( 0 , len( sup_lis ) - 1 ) :
+		if len( set( sup_lis ) & set( sup_lis2 ) ) == len( sup_lis ) :
 
-			if sup_lis[i] in sup_lis2 :
-				return "Arima multime nu este inclusa in cea de a doua"
+			print("Multimea 1 inclusa in 2")
 
-		return "Arima multime Este inclusa in cea de a doua"
+		else : 
 
-	else :
+			print("Multimea 1 nu este inclusa in 2")
 
-		for i in range( 0 , sup_lis2.count() - 1) :
+	else : 
 
-			if sup_lis2[i] in sup_lis1 :
-				return "A doua multime nu este inclusa in prima"
+		if len( set( sup_lis ) & set( sup_lis2 ) ) == len( sup_lis2 ) :
 
-		return "A doua multime Este inclusa in prima"
+			print("Multimea 2 inclusa in 1")
 
+		else : 
+
+			print("Multimea 2 nu este inclusa in 1")
 
 
 # Meniul
@@ -135,6 +136,7 @@ def meniu(lis):
 	print("Determinarea daca multimea multipla curenta este inclusa in alta multime specificata >>> 8")
 	print("Operatiile de reuniune, diferenta si intersectie a doua multimi multiple >>> 9")
 	print("Compararea a doua multimi pe baza operatiei de incluziune >>> 10")
+	print("Introduceti n elemente >>> 11")
 
 	m = int( input( ">>> " ) )
 
@@ -175,7 +177,7 @@ def meniu(lis):
 		operation(lis)
 
 	if m == 10 :
-		print( if_inlude_who )
+		if_inlude_who(lis)
 
 	if m == 11 :
 		inserare( lis )
@@ -184,7 +186,7 @@ def meniu(lis):
 
 
 
-
+# Main
 
 lis = []
 
