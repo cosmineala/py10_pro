@@ -1,3 +1,5 @@
+# github : https://github.com/cosmineala/py10_pro
+
 from random import *
 from math import *
 
@@ -40,13 +42,13 @@ def suport(lis):
 
 
 # Crearea multimii ( 1 )
-def gen( lis ):
+def gen( lis , x = 101 , y = 101 ):
 
-	n = randint( 1 , 101 )
+	n = randint( 1 , x )
 
 	while n:
 		
-		lis.append( randint( 1 , 101 ) )
+		lis.append( randint( 1 , y ) )
 
 		n = n - 1
 
@@ -125,73 +127,83 @@ def if_inlude_who(lis):
 
 
 # Meniul
-def meniu(lis):
+def meniu( ):
 
-	print("Exit >>> 0")
-	print("Crearea multimii >>> 1")
-	print("Afisarea multimii >>> 2")
-	print("Determinarea numarului de elemente din multime >>> 3")
-	print("Determinarea daca multimea este vida >>> 4")
-	print("Determinarea daca un element apartine multimii >>> 5")
-	print("Determinarea suportul multimii multiple >>> 6")
-	print("Determinarea numarului k(e, M), pentru un element e specificat >>> 7")
-	print("Determinarea daca multimea multipla curenta este inclusa in alta multime specificata >>> 8")
-	print("Operatiile de reuniune, diferenta si intersectie a doua multimi multiple >>> 9")
-	print("Compararea a doua multimi pe baza operatiei de incluziune >>> 10")
-	print("Introduceti n elemente >>> 11")
+	lis = []
 
-	m = int( input( ">>> " ) )
+	ok = True 
 
-	if m == 0 :
-		return
+	x = 101 
+	y = 101 
 
-	if m == 1 :
-		gen(lis) 
+	while ok :
 
-	if m == 2 :
-		multime_print(lis)
+		print("Exit >>> 0")
+		print("Crearea multimii >>> 1")
+		print("Afisarea multimii >>> 2")
+		print("Determinarea numarului de elemente din multime >>> 3")
+		print("Determinarea daca multimea este vida >>> 4")
+		print("Determinarea daca un element apartine multimii >>> 5")
+		print("Determinarea suportul multimii multiple >>> 6")
+		print("Determinarea numarului k(e, M), pentru un element e specificat >>> 7")
+		print("Determinarea daca multimea multipla curenta este inclusa in alta multime specificata >>> 8")
+		print("Operatiile de reuniune, diferenta si intersectie a doua multimi multiple >>> 9")
+		print("Compararea a doua multimi pe baza operatiei de incluziune >>> 10")
+		print("Introduceti n elemente >>> 11")
+		print("Modificare parametri generare >>> 12")
 
-	if m == 3 :
-		print( nr_elemente(lis) )
+		m = int( input( ">>> " ) )
 
-	if m == 4 :
-		if nr_elemente(lis) :
-			print("Multimea nu este vida")
-		else :
-			print("Multimea este vida")
+		if m == 0 :
+			ok = False
 
-	if m == 5 :
-		if int( input(">>> ") ) in lis :
-			print("Termenul este in lista")
-		else :
-			print("Termenul NU este in lista")
+		if m == 1 :
+			gen( lis , x , y ) 
 
-	if m == 6 :
-		print( suport( lis ) )
+		if m == 2 :
+			multime_print(lis)
 
-	if m == 7 :
-		print( lis.count( int( input("Introduceti elementul e \n>>>") ) ) )
+		if m == 3 :
+			print( nr_elemente(lis) )
 
-	if m == 8 :
-		print( if_include(lis) )
+		if m == 4 :
+			if nr_elemente(lis) :
+				print("Multimea nu este vida")
+			else :
+				print("Multimea este vida")
 
-	if m == 9 :
-		operation(lis)
+		if m == 5 :
+			if int( input(">>> ") ) in lis :
+				print("Termenul este in lista")
+			else :
+				print("Termenul NU este in lista")
 
-	if m == 10 :
-		if_inlude_who(lis)
+		if m == 6 :
+			print( suport( lis ) )
 
-	if m == 11 :
-		inserare( lis )
+		if m == 7 :
+			print( lis.count( int( input("Introduceti elementul e \n>>>") ) ) )
 
-	meniu(lis)
+		if m == 8 :
+			print( if_include(lis) )
+
+		if m == 9 :
+			operation(lis)
+
+		if m == 10 :
+			if_inlude_who(lis)
+
+		if m == 11 :
+			inserare( lis )
+
+		if m == 12 :
+			x = 1 + int( input("Introduceti numarul maxim de termeni >>> ") )
+			y = 1 + int( input( "Introduceti numarul maxim pe care un termen poate sa il ia >>> " ) )
 
 
 
-# Main
+# Start
 
-lis = []
-
-meniu(lis)
+meniu( )
 
 print("Program terminat")
